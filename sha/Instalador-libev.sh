@@ -1154,7 +1154,10 @@ install_main(){
     fi
 
     echo
-    echo "Visite: http://t.me/conectedmx_bot"
+    echo "BOT: http://t.me/conectedmx_bot"
+    echo "GRUPO: http://t.me/conectedmx_vip"
+    echo "CANAL: http://t.me/conectedmx"
+    echo "CANAL: http://t.me/LaCasitaMx"
     echo
 }
 
