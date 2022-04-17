@@ -1154,7 +1154,7 @@ install_main(){
     fi
 
     echo
-    echo "Visite: https://pro.sshyproxy.xyz"
+    echo "Visite: http://t.me/conectedmx_bot"
     echo
 }
 
