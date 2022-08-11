@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
-###
+#
 # Auto install Shadowsocks Server (all version)
 #
 # Copyright (C) 2016-2019 Teddysun <i@teddysun.com>
@@ -38,7 +38,7 @@ cur_dir=$( pwd )
 software=(Shadowsocks-Python ShadowsocksR Shadowsocks-Go Shadowsocks-libev)
 
 libsodium_file="libsodium-1.0.18"
-libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.18/libsodium-1.0.18.tar.gz"
+libsodium_url="https://github.com/lacasitamx/libsodium/raw/master/Libso/libsodium-1.0.18.tar.gz"
 
 mbedtls_file="mbedtls-2.16.0"
 mbedtls_url="https://tls.mbed.org/download/mbedtls-2.16.0-gpl.tgz"
@@ -845,7 +845,7 @@ install_prepare(){
 install_libsodium(){
     if [ ! -f /usr/lib/libsodium.a ]; then
         cd ${cur_dir}
-        download "${libsodium_file}.tar.gz" "${libsodium_url}"
+        wget https://raw.githubusercontent.com/lacasitamx/libsodium/master/Libso/libsodium-1.0.18.tar.gz
         tar zxf ${libsodium_file}.tar.gz
         cd ${libsodium_file}
         ./configure --prefix=/usr && make && make install
@@ -901,7 +901,7 @@ install_shadowsocks_python(){
     else
         echo
         echo -e "[${red}Error${plain}] ${software[0]} install failed."
-        echo "Please visit: https://teddysun.com/486.html and contact."
+   #     echo "Please visit: https://teddysun.com/486.html and contact."
         install_cleanup
         exit 1
     fi
@@ -923,7 +923,7 @@ install_shadowsocks_r(){
     else
         echo
         echo -e "[${red}Error${plain}] ${software[1]} install failed."
-        echo "Please visit; https://teddysun.com/486.html and contact."
+    #    echo "Please visit; https://teddysun.com/486.html and contact."
         install_cleanup
         exit 1
     fi
@@ -963,7 +963,7 @@ install_shadowsocks_go(){
     else
         echo
         echo -e "[${red}Error${plain}] ${software[2]} install failed."
-        echo "Please visit: https://teddysun.com/486.html and contact."
+       # echo "Please visit: https://teddysun.com/486.html and contact."
         install_cleanup
         exit 1
     fi
@@ -986,7 +986,7 @@ install_shadowsocks_libev(){
     else
         echo
         echo -e "[${red}Error${plain}] ${software[3]} install failed."
-        echo "Please visit: https://teddysun.com/486.html and contact."
+     #   echo "Please visit: https://teddysun.com/486.html and contact."
         install_cleanup
         exit 1
     fi
