@@ -844,7 +844,7 @@ install_prepare(){
 
 install_libsodium(){
     if [ ! -f /usr/lib/libsodium.a ]; then
-        cd ${cur_dir}
+        cd /tmp/
         wget https://raw.githubusercontent.com/lacasitamx/libsodium/master/Libso/libsodium-1.0.18.tar.gz
         tar zxf ${libsodium_file}.tar.gz
         cd ${libsodium_file}
