@@ -1016,7 +1016,7 @@ install_shadowsocks_libev_obfs(){
         make install
         if [ ! "$(command -v obfs-server)" ]; then
             echo -e "[${red}Error${plain}] simple-obfs for ${software[${selected}-1]} install failed."
-            echo "Please visit: https://teddysun.com/486.html and contact."
+        #    echo "Please visit: https://teddysun.com/486.html and contact."
             install_cleanup
             exit 1
         fi
@@ -1072,6 +1072,12 @@ install_completed_libev(){
     echo -e "Tu obfs             : ${red} ${shadowsocklibev_obfs} ${plain}"
     fi
     echo -e "Tu Encryption Method: ${red} ${shadowsockscipher} ${plain}"
+    #guardando confi
+    echo "Server IP        : $(get_ip)" >/etc/shadowsocks-libev/confis
+    echo "Server Port      : ${shadowsocksport}" >>/etc/shadowsocks-libev/confis
+    echo "Password         : ${shadowsockspwd}" >>/etc/shadowsocks-libev/confis
+    echo "Obfs             : ${shadowsocklibev_obfs}" >>/etc/shadowsocks-libev/confis
+    echo "Tu Encryption Method: ${shadowsockscipher}" >>/etc/shadowsocks-libev/confis
 }
 
 qr_generate_python(){
@@ -1121,6 +1127,7 @@ qr_generate_libev(){
         echo
         echo "Tu QR Code: (For Shadowsocks Windows, OSX, Android and iOS clients)"
         echo -e "${green} ${qr_code} ${plain}"
+        echo "${qr_code}" >>/etc/shadowsocks-libev/confis
         echo -n "${qr_code}" | qrencode -s8 -o ${cur_dir}/shadowsocks_libev_qr.png
         echo "Tu QR Code has been saved as a PNG file path:"
         echo -e "${green} ${cur_dir}/shadowsocks_libev_qr.png ${plain}"
