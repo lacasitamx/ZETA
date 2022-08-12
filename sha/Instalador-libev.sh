@@ -616,8 +616,8 @@ install_select(){
 
 install_prepare_password(){
     echo "Por favor, introduzca la contraseña para ${software[${selected}-1]}"
-    read -p "(Default Contraseña: pro.sshyproxy.xyz):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="pro.sshyproxy.xyz"
+    read -p "(Default Contraseña: lacasitamx):" shadowsockspwd
+    [ -z "${shadowsockspwd}" ] && shadowsockspwd="lacasitamx"
     msg -bar
     echo "Contraseña = ${shadowsockspwd}"
     msg -bar
@@ -1324,6 +1324,15 @@ uninstall_shadowsocks_libev(){
 }
 
 uninstall_shadowsocks(){
+if [ -f ${shadowsocks_libev_init} ]; then
+            uninstall_shadowsocks_libev
+        else
+            echo -e "[${red}Error${plain}] ${software[${un_select}-1]} not installed, please check it and try again."
+            echo
+            exit 1
+        fi
+}
+unsha(){
     while true
     do
     echo  "¿Qué servidor de Shadowsocks quieres desinstalar?"
